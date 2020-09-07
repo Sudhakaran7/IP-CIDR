@@ -1,0 +1,54 @@
+Given a start IP address ip and a number of ips we need to cover n, return a representation of the range as a list (of smallest possible length) of CIDR blocks.
+A CIDR block is a string consisting of an IP, followed by a slash, and then the prefix length. For example: "123.45.67.89/20". That prefix length "20" represents 
+the number of common prefix bits in the specified range.
+
+Input Description:
+A string ip and n an integer as input.(1<n<100)
+
+Output Description:
+Print all the CIDR blocks in a single line with spaces between them.
+
+Sample INput:
+255.0.0.7 10
+
+Sample Output:
+255.0.0.7/32 255.0.0.8/29 255.0.0.16/32
+
+Explanation:
+The initial ip address, when converted to binary, looks like this (spaces added for clarity):
+255.0.0.7 -> 11111111 00000000 00000000 00000111
+The address "255.0.0.7/32" specifies all addresses with a common prefix of 32 bits to the given address.
+The address "255.0.0.8/29" specifies all addresses with a common prefix of 29 bits to the given address:
+255.0.0.8 -> 11111111 00000000 00000000 00001000
+The address "255.0.0.16/32" specifies all addresses with a common prefix of 32 bits to the given address,
+ie. just 11111111 00000000 00000000 00010000.
+
+Sample Input:
+234.01.5.6 4
+
+Sample Output:
+234.1.5.6/31 234.1.5.8/31
+
+Sample Input:
+194.6.7.3 7
+
+Sample Output:
+194.6.7.3/32 194.6.7.4/30 194.6.7.8/31
+
+Sample Input:
+222.0.0.01 3
+
+Sample Output:
+222.0.0.1/32 222.0.0.2/31
+
+Sample Input:
+201.2.2.5 8
+
+Sample Output:
+201.2.2.5/32 201.2.2.6/31 201.2.2.8/30 201.2.2.12/32
+
+Sample Input:
+191.001.0.0 9
+
+Sample Output:
+191.1.0.0/29 191.1.0.8/32
